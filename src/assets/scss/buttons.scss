@@ -1,0 +1,91 @@
+.button {
+  --button-padding-y: .45rem;
+  --button-padding-x: .85rem;
+
+  --button-border-color: var(--white);
+  --button-bg-color: var(--white);
+  --button-color: var(--dark);
+
+  --button-hover-border-color: var(--dark);
+  --button-hover-bg-color: var(--dark);
+  --button-hover-color: var(--white);
+
+  --button-gap: 1rem;
+  
+  font-size: 1rem;
+  line-height: 1rem;
+  line-height: normal;
+  text-decoration: none;
+  position: relative;
+  border-radius: var(--border-radius);
+  outline: none;
+  border: 1px solid var(--button-border-color);
+  padding-inline: var(--button-padding-x);
+  padding-block: var(--button-padding-y);
+  background-color: var(--button-bg-color);
+  color: var(--button-color);
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--button-gap);
+  // i {
+  //   min-width: calc(var(--button-padding-x) * 1.5);
+  // }
+  &:hover {
+    border-color: var(--button-hover-border-color);
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-color);
+  }
+  &--large {
+    --button-padding-y: .75rem;
+    --button-padding-x: 1.25rem;
+    font-size: 95%;
+  }
+  &--primary {
+    --button-border-color: var(--primary);
+    --button-bg-color: var(--primary);
+    --button-color: var(--white);
+    --button-hover-border-color: var(--white);
+    --button-hover-bg-color: var(--white);
+    --button-hover-color: var(--primary);
+
+    &-outline {
+      --button-border-color: var(--primary);
+      --button-bg-color: transparent;
+      --button-color: var(--primary);
+      --button-hover-border-color: var(--primary);
+      --button-hover-bg-color: var(--primary);
+      --button-hover-color: var(--white);
+    }
+  }
+  &--light {
+    &-outline {
+      --button-border-color: var(--border-color);
+      --button-bg-color: transparent;
+      --button-color: var(--light);
+      --button-hover-border-color: var(--light);
+      --button-hover-bg-color: var(--light);
+      --button-hover-color: var(--dark);
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    &--light {
+      &-outline {
+        --border-color: var(--dark);
+        --button-color: var(--dark);
+        --button-hover-border-color: var(--dark);
+        --button-hover-bg-color: var(--dark);
+        --button-hover-color: var(--white);
+      }
+    }
+  }
+
+
+  &__wrapper {
+    display: flex;
+    gap: var(--elements-common-gap);
+  }
+  
+}

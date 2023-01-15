@@ -6,6 +6,7 @@
   --dark: #262626;
   --white: #ffffff;
   --black: #000000;
+  --danger: #ff0000;
 
   // common
   color-scheme: light dark;
@@ -24,7 +25,10 @@
   --header-height: 75px;
   --icon-size: 35px;
 
-  --elements-common-gap: 1rem;
+  --elements-common-gap: .5rem;
+
+  --form-elements-gap: 1rem;
+  --form-input-height: 45px;
   
 }
 @media (prefers-color-scheme: light) {

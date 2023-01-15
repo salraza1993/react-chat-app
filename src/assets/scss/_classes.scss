@@ -11,4 +11,54 @@
 
 .display {
   &--flex { display: flex; }
+  &--inline-flex { display: inline-flex; }
+  &--block { display: block; }
+  &--inline-block { display: inline-block; }
+  &--grid { display: grid; }
+  &--inline-grid { display: inline-grid; }
+}
+
+$names: (1, 2, 3, 4, 5, 6);
+$gaps: (0.25, .5rem, .75rem, 1rem, 1.5rem, 3rem);
+@for $i from 1 through length($gaps) {
+  .mb {
+    &--#{nth($names, $i)} {
+      margin-bottom: nth($gaps, $i) !important;
+    }
+  }
+  .mt {
+    &--#{nth($names, $i)} {
+      margin-top: nth($gaps, $i) !important;
+    }
+  }
+  .ms {
+    &--#{nth($names, $i)} {
+      margin-block-start: nth($gaps, $i) !important;
+    }
+  }
+  .me {
+    &--#{nth($names, $i)} {
+      margin-block-end: nth($gaps, $i) !important;
+    }
+  }
+  .pb {
+    &--#{nth($names, $i)} {
+      padding-bottom: nth($gaps, $i) !important;
+    }
+  }
+  .pt {
+    &--#{nth($names, $i)} {
+      padding-top: nth($gaps, $i) !important;
+    }
+  }
+  .ps {
+    &--#{nth($names, $i)} {
+      padding-block-start: nth($gaps, $i) !important;
+    }
+  }
+  .pe {
+    &--#{nth($names, $i)} {
+      padding-block-end: nth($gaps, $i) !important;
+    }
+  }
 }

@@ -1,0 +1,15 @@
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-block: calc(.5rem + .5vw);
+  padding-inline: calc(2rem + .5vw);
+  z-index: 10;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

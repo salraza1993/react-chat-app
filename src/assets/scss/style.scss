@@ -6,6 +6,11 @@
 
 @import 'variables';
 @import 'classes';
+
+@import 'buttons.scss';
+@import 'header.scss';
+@import 'forms.scss';
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -13,6 +18,8 @@ html {
 body {
   background-color: var(--body-bg-color);
   color: var(--text-color);
+  font-size: clamp(.9rem, 5vw, 1.2rem);
+  line-height: clamp(1.5rem, 8vw, 1.7rem);
   font-family: var(--titillium);
   padding-top: var(--header-height);
 }
@@ -64,6 +71,21 @@ h3 {
   line-height: clamp(1.4rem, 12vw, calc(2.15rem + 2vw));
   margin-bottom: var(--elements-common-gap);
 }
+h4 {
+  font-size: clamp(1.1rem, 10vw, calc(1.3rem + 1.75vw));
+  line-height: clamp(1.4rem, 12vw, calc(2rem + 2vw));
+  margin-bottom: var(--elements-common-gap);
+}
+h5 {
+  font-size: clamp(1.1rem, 10vw, calc(1.1rem + 1.5vw));
+  line-height: clamp(1.4rem, 12vw, calc(1.75rem + 2vw));
+  margin-bottom: var(--elements-common-gap);
+}
+h6 {
+  font-size: clamp(1.1rem, 10vw, calc(1rem + 1vw));
+  line-height: clamp(1.4rem, 12vw, calc(1.5rem + 1.5vw));
+  margin-bottom: var(--elements-common-gap);
+}
 .body__bg__image {
   width: 100%;
   height: 100%;
@@ -88,123 +110,32 @@ h3 {
   }
 }
 
+hr {
+  border: 1px solid transparent;
+  border-bottom-color: var(--border-color);
+  display: block;
+  margin-block: 1rem;
+  outline: 0;
+  width: 100%;
+}
+
 // content container
 .content {
   &__container {
     position: relative;
     width: 100%;
-    max-width: calc(450px + 5vw);
+    max-width: calc(600px + 5vw);
     min-height: calc(calc(100vh - var(--header-height)) - calc(var(--body-gap) * 2));
     align-items: center;
     display: flex;
-  }
-  
-}
-
-.button {
-  --button-padding-y: .45rem;
-  --button-padding-x: .85rem;
-
-  --button-border-color: var(--white);
-  --button-bg-color: var(--white);
-  --button-color: var(--dark);
-
-  --button-hover-border-color: var(--dark);
-  --button-hover-bg-color: var(--dark);
-  --button-hover-color: var(--white);
-
-  --button-gap: 1rem;
-  
-  font-size: 1rem;
-  line-height: 1rem;
-  line-height: normal;
-  text-decoration: none;
-  position: relative;
-  border-radius: var(--border-radius);
-  outline: none;
-  border: 1px solid var(--button-border-color);
-  padding-inline: var(--button-padding-x);
-  padding-block: var(--button-padding-y);
-  background-color: var(--button-bg-color);
-  color: var(--button-color);
-  transition: var(--transition);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--button-gap);
-  // i {
-  //   min-width: calc(var(--button-padding-x) * 1.5);
-  // }
-  &:hover {
-    border-color: var(--button-hover-border-color);
-    background-color: var(--button-hover-bg-color);
-    color: var(--button-hover-color);
-  }
-  &--primary {
-    --button-border-color: var(--primary);
-    --button-bg-color: var(--primary);
-    --button-color: var(--white);
-    --button-hover-border-color: var(--white);
-    --button-hover-bg-color: var(--white);
-    --button-hover-color: var(--primary);
-
-    &-outline {
-      --button-border-color: var(--primary);
-      --button-bg-color: transparent;
-      --button-color: var(--primary);
-      --button-hover-border-color: var(--primary);
-      --button-hover-bg-color: var(--primary);
-      --button-hover-color: var(--white);
+    .content {
+      width: 100%;
+      position: relative;
     }
   }
-  &--light {
-    &-outline {
-      --button-border-color: var(--border-color);
-      --button-bg-color: transparent;
-      --button-color: var(--light);
-      --button-hover-border-color: var(--light);
-      --button-hover-bg-color: var(--light);
-      --button-hover-color: var(--dark);
-    }
-  }
-
-  @media (prefers-color-scheme: light) {
-    &--light {
-      &-outline {
-        --border-color: var(--dark);
-        --button-color: var(--dark);
-        --button-hover-border-color: var(--dark);
-        --button-hover-bg-color: var(--dark);
-        --button-hover-color: var(--white);
-      }
-    }
-  }
-
-
-  &__wrapper {
-    display: flex;
-    gap: var(--elements-common-gap);
-  }
-  
 }
 
 
-// header 
-
-.header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  border-bottom: 1px solid var(--border-color);
-  padding-block: calc(.5rem + .5vw);
-  padding-inline: calc(2rem + .5vw);
-  z-index: 10;
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 .dark__light__mode__button {
   position: relative;
   width: var(--icon-size);
@@ -214,9 +145,11 @@ h3 {
   display: grid;
   place-items: center;
   cursor: pointer;
+  font-size: 130%;
   transition: var(--transition);
   &:hover {
     background-color: var(--primary);
     color: var(--white);
   }
 }
+

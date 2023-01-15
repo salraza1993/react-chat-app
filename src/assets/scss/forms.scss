@@ -1,0 +1,104 @@
+.form {
+  &__container {
+    --gap: 1rem;
+    position: relative;
+    display: flex;
+    gap: var(--gap);
+    width: 100%;
+    flex-wrap: wrap;
+    // background-color: rgba(255, 255, 255, 0.1);
+    // padding-block: 1rem 1.5rem;
+    // padding-inline: 1.5rem;
+  }
+  &__block {
+    --input-padding-x: 1rem;
+    --input-bg-color: transparent;
+    --input-color: var(--light);
+    --input-hover-bg-color: var(--primary);
+    --input-hover-color: var(--black);
+    --input-border-color: var(--border-color);
+    --input-hover-border-color: var(--primary);
+
+    width: 100%;
+    position: relative;
+    &__label {
+      display: block;
+      margin-bottom: .75rem;
+      i { 
+        font-size: 65%; 
+        margin-inline-start: .5rem; 
+        display: inline-block; 
+        color: var(--danger);
+      }
+    }
+    &__input {
+      width: 100%;
+      height: var(--form-input-height);
+      font-size: inherit;
+      font-family: inherit;
+      background-color: var(--input-bg-color);
+      color: var(--input-color);
+      border: 0;
+      outline: none;
+      transition: var(--transtion);
+      padding-inline: var(--input-padding-x);
+      box-shadow: 0 0 0 1px var(--input-border-color);
+      &:hover {
+        --input-hover-color: var(--light);
+        &::placeholder {
+          color: var(--input-hover-color);
+        }
+        color: var(--input-hover-color);
+        box-shadow: 0 0 0 1px var(--input-hover-border-color);
+      }
+      &:focus {
+        &::placeholder {
+          color: var(--input-hover-color);
+        }
+        background-color: var(--input-hover-bg-color);
+        color: var(--input-hover-color);
+        box-shadow: 0 0 0 2px var(--input-hover-border-color);
+      }
+      &[type=file] {
+        padding: .3rem 0.5rem;
+        display: inline-table;
+        position: relative;
+        line-height: calc(var(--form-input-height) - 10px);
+        &::-webkit-file-upload-button {
+          visibility: hidden;
+        }
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: 'Select file';
+          display: inline-flex;
+          background: var(--border-color);
+          align-items: center;
+          height: var(--form-input-height);
+          padding: 0 1.1rem;
+          outline: none;
+          white-space: nowrap;
+          -webkit-user-select: none;
+          cursor: pointer;
+          transition: var(--transition);
+        }
+        &:hover, &:focus-within {
+          --input-hover-bg-color: transparent;
+          color: var(--primary);
+          box-shadow: 0 0 0 1px var(--input-hover-border-color);
+          &::before {
+            background-color: var(--primary);
+            color: var(--white);
+          }
+        }
+      }
+    }
+    &--file { margin-top: .65rem; }
+    &.col {
+      &--6 {
+        width: calc(calc(100% - var(--gap)) / 2);
+      }
+    }
+  }
+}
